@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useUrlContext } from "../../context";
 
 function UrlList() {
-  const [isCopied, setIsCopied] = useState<number>();
+  const [isCopied, setIsCopied] = useState<number | undefined>(undefined);
 
   const copyToClipboard = (text: string, index: number) => {
     navigator.clipboard.writeText(text);
     setIsCopied(index);
     setTimeout(() => {
-      setIsCopied(false);
+      setIsCopied(undefined);
     }, 2000);
   };
 
