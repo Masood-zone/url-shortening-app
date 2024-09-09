@@ -1,4 +1,3 @@
-// src/context/UrlContext.tsx
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 interface UrlContextType {
@@ -16,7 +15,6 @@ export const UrlProvider: React.FC<{ children: React.ReactNode }> = ({
   >([]);
 
   useEffect(() => {
-    // Load existing URLs from localStorage on component mount
     const storedUrls = localStorage.getItem("urls");
     if (storedUrls) {
       setUrls(JSON.parse(storedUrls));
@@ -24,9 +22,11 @@ export const UrlProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   const addUrl = (newUrl: { shortenedUrl: string; prevUrl: string }) => {
-    setUrls((prevUrls) => [...prevUrls, newUrl]);
-    // Save URLs to localStorage after adding a new one
-    localStorage.setItem("urls", JSON.stringify([...prevUrls, newUrl]));
+    setUrls((prevUrls) => {
+      const updatedUrls = [...prevUrls, newUrl];
+      localStorage.setItem("urls", JSON.stringify(updatedUrls));
+      return updatedUrls;
+    });
   };
 
   return (
@@ -38,7 +38,7 @@ export const UrlProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useUrlContext = () => {
   const context = useContext(UrlContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useUrlContext must be used within a UrlProvider");
   }
   return context;
