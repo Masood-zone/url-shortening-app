@@ -40,8 +40,12 @@ function ShortenURL() {
       reset();
     } catch (error) {
       setIsLoading(false);
-      console.error(error.message);
-      toast.error(error.message);
+      if (error instanceof Error) {
+        console.error(error.message);
+      } else {
+        console.error("An unknown error occurred");
+        toast.error("An unknown error occurred");
+      }
       reset();
     } finally {
       setIsLoading(false);
