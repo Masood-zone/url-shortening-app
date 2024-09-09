@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { logo } from "../../assets/svg";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ function Navbar() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo and Navigation */}
         <div className="flex items-center gap-5">
-          <img src="src/assets/svg/logo.svg" alt="shortly-logo" />
+          <img src={logo} alt="shortly-logo" />
           {/* Navigation links for desktop */}
           <nav className="hidden md:flex space-x-4 gap-4">
             <a href="#" className="text-gray-500 hover:text-gray-800">

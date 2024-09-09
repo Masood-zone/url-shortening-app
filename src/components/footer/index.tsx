@@ -1,8 +1,15 @@
+import {
+  facebookIcon,
+  instagramIcon,
+  pinterestIcon,
+  twitterIcon,
+} from "../../assets/svg";
+
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 sm:grid-cols-3 max-[399px]:grid-cols-1 gap-8">
           <div className="col-span-2">
             <div className="text-2xl font-bold mb-4">Shortly</div>
             <p className="mb-4">
@@ -40,16 +47,16 @@ function Footer() {
             <h3 className="font-bold mb-2">Follow Us</h3>
             <div className="flex items-center gap-3">
               <a href="#" className="text-white hover:text-teal-500">
-                <img src="src/assets/svg/icon-facebook.svg" alt="facebook" />
+                <img src={facebookIcon} alt="facebook" />
               </a>
               <a href="#" className="text-white hover:text-teal-500">
-                <img src="src/assets/svg/icon-twitter.svg" alt="twitter" />
+                <img src={twitterIcon} alt="twitter" />
               </a>
               <a href="#" className="text-white hover:text-teal-500">
-                <img src="src/assets/svg/icon-pinterest.svg" alt="pinterest" />
+                <img src={pinterestIcon} alt="pinterest" />
               </a>
               <a href="#" className="text-white hover:text-teal-500">
-                <img src="src/assets/svg/icon-instagram.svg" alt="instagram" />
+                <img src={instagramIcon} alt="instagram" />
               </a>
             </div>
           </div>

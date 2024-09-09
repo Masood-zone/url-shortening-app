@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import ShortenURL from "../components/shorten-url";
 import Statistics from "../components/statistics";
 import AdBanner from "../components/banner";
+import { illustrationWorking } from "../assets/svg";
 
 export default function LandingPage() {
   return (
@@ -31,7 +32,7 @@ export default function LandingPage() {
             {/* Image */}
             <div className="md:w-full">
               <img
-                src="src\assets\svg\illustration-working.svg"
+                src={illustrationWorking}
                 alt="Person at desk"
                 className="w-full object-cover"
               />
