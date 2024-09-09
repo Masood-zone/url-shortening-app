@@ -23,7 +23,7 @@ function ShortenURL() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/shorten",
+        "https://url-shortener-backend-z5qg.onrender.com/api/shorten",
         data,
         {
           headers: {
